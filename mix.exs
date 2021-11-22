@@ -21,11 +21,10 @@ defmodule RSS.MixProject do
 
   defp deps do
     [
-      {:date_time_parser, "~> 1.0"},
-      {:fast_rss, "~> 0.3.5"},
-      {:http_client, path: "../http_client"},
+      {:http_client, github: "robot-enemy/http_client"},
 
-      {:util, github: "robot-enemy/util"},
+      {:date_time_parser, "~> 1.1"},
+      {:feeder_ex, "~> 1.1"},
 
       # Testing
       {:mox, "~> 1.0", only: :test},
