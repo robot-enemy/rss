@@ -132,6 +132,13 @@ defmodule RSSTest do
       end) =~ error_reason
     end
 
+    test "test" do
+      # path = Path.join(File.cwd!, "test/data/bbc-world-news.xml")
+      path = Path.join(File.cwd!, "test/data/variety.xml")
+
+      RSS.Parser.parse(path)
+    end
+
   end
 
 end
