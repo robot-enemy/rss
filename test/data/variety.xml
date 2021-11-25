@@ -1,31 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2full.xsl"?><?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?><rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:sy="http://purl.org/rss/1.0/modules/syndication/" xmlns:slash="http://purl.org/rss/1.0/modules/slash/" xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/" xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" version="2.0">
+<?xml-stylesheet type="text/xsl" media="screen" href="/~d/styles/rss2full.xsl"?>
+<?xml-stylesheet type="text/css" media="screen" href="http://feeds.feedburner.com/~d/styles/itemcontent.css"?>
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+		 xmlns:dc="http://purl.org/dc/elements/1.1/"
+		 xmlns:atom="http://www.w3.org/2005/Atom"
+		 xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+		 xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+		 xmlns:georss="http://www.georss.org/georss"
+		 xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+		 xmlns:media="http://search.yahoo.com/mrss/"
+		 xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0"
+		 version="2.0">
 
 <channel>
 	<title>Variety</title>
-	
+
 	<link>https://variety.com</link>
 	<description />
 	<lastBuildDate>Wed, 24 Nov 2021 10:59:28 +0000</lastBuildDate>
 	<language>en-US</language>
-	<sy:updatePeriod>
-	hourly	</sy:updatePeriod>
-	<sy:updateFrequency>
-	1	</sy:updateFrequency>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=5.8.2</generator>
 
-<image>
-	<url>https://variety.com/wp-content/uploads/2018/06/variety-favicon.png?w=32</url>
-	<title>Variety</title>
-	<link>https://variety.com</link>
-	<width>32</width>
-	<height>32</height>
-</image> 
-<site xmlns="com-wordpress:feed-additions:1">179338616</site>	<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://feeds.feedburner.com/variety/news/frontpage" /><feedburner:info uri="variety/news/frontpage" /><atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" /><feedburner:browserFriendly>This is an XML content feed. It is intended to be viewed in a newsreader or syndicated to another site, subject to copyright and fair use.</feedburner:browserFriendly><item>
+	<image>
+		<url>https://variety.com/wp-content/uploads/2018/06/variety-favicon.png?w=32</url>
+		<title>Variety</title>
+		<link>https://variety.com</link>
+		<width>32</width>
+		<height>32</height>
+	</image>
+	<site xmlns="com-wordpress:feed-additions:1">179338616</site>
+	<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://feeds.feedburner.com/variety/news/frontpage" />
+	<feedburner:info uri="variety/news/frontpage" />
+	<atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" />
+	<feedburner:browserFriendly>This is an XML content feed. It is intended to be viewed in a newsreader or syndicated to another site, subject to copyright and fair use.</feedburner:browserFriendly>
+	<item>
 		<title>‘The Great British Bake-Off’ Final Nabs Sizeable Slice of Audience Share With 6.9 Million Viewers</title>
 		<link>https://variety.com/2021/tv/news/the-great-british-bake-off-final-2021-ratings-1235118941/</link>
 					<comments>https://variety.com/2021/tv/news/the-great-british-bake-off-final-2021-ratings-1235118941/#respond</comments>
-		
+
 		<dc:creator><![CDATA[K.J. Yossman]]></dc:creator>
 		<pubDate>Wed, 24 Nov 2021 10:09:31 +0000</pubDate>
 				<category><![CDATA[Global]]></category>
@@ -37,11 +52,11 @@
 					<description>SPOILER WARNING: Do not read this story unless you&amp;#8217;ve seen the &amp;#8220;Great British Bake Off&amp;#8221; season finale. Major spoilers are ahea. &amp;#8220;The Great British Bake-Off&amp;#8221; nabbed a sizeable slice of the audience share on Tuesday evening with its final episode of the season. At its peak, 6.9 million viewers tuned in to see the final, amounting [&amp;#8230;]&lt;div class="feedflare"&gt;
 &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=KdsCwSMrTyc:CATsX6_kD8s:lrRoTrtBRRE"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=lrRoTrtBRRE" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=KdsCwSMrTyc:CATsX6_kD8s:ia-_PxDGrK0"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=ia-_PxDGrK0" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=KdsCwSMrTyc:CATsX6_kD8s:TyNjNGeJP5o"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=TyNjNGeJP5o" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=KdsCwSMrTyc:CATsX6_kD8s:7bwZv_4sjCM"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=7bwZv_4sjCM" border="0"&gt;&lt;/img&gt;&lt;/a&gt;
 &lt;/div&gt;</description>
-		
+
 					<wfw:commentRss>https://variety.com/2021/tv/news/the-great-british-bake-off-final-2021-ratings-1235118941/feed/</wfw:commentRss>
 			<slash:comments>0</slash:comments>
-		
-		
+
+
 		<post-id xmlns="com-wordpress:feed-additions:1">1235118941</post-id>
 		<media:thumbnail url="https://variety.com/wp-content/uploads/2021/11/Bake-Off.jpeg" />
 		<media:content url="https://variety.com/wp-content/uploads/2021/11/Bake-Off.jpeg" medium="image">
@@ -52,7 +67,7 @@
 		<title>Torino Film Festival Artistic Director Stefano Francia di Celle on Rebooting Italy’s Preeminent Indie Cinema Event</title>
 		<link>https://variety.com/2021/film/news/torino-film-festival-artistic-director-stefano-francia-di-celle-1235116558/</link>
 					<comments>https://variety.com/2021/film/news/torino-film-festival-artistic-director-stefano-francia-di-celle-1235116558/#respond</comments>
-		
+
 		<dc:creator><![CDATA[nvivarelli]]></dc:creator>
 		<pubDate>Wed, 24 Nov 2021 09:15:02 +0000</pubDate>
 				<category><![CDATA[Festivals]]></category>
@@ -66,11 +81,11 @@
 					<description>The 39th edition of Torino Film Festival, Italy&amp;#8217;s preeminent event for young directors and indie cinema, kicks off Friday with the international premiere of “Sing 2.” It is the country&amp;#8217;s first festival held in venues with 100% seating capacity since COVID-19 struck, and it will also be the first in-person edition assembled by artistic director [&amp;#8230;]&lt;div class="feedflare"&gt;
 &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=XFftmdEyfIs:1z8qzrChiLI:lrRoTrtBRRE"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=lrRoTrtBRRE" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=XFftmdEyfIs:1z8qzrChiLI:ia-_PxDGrK0"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=ia-_PxDGrK0" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=XFftmdEyfIs:1z8qzrChiLI:TyNjNGeJP5o"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=TyNjNGeJP5o" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=XFftmdEyfIs:1z8qzrChiLI:7bwZv_4sjCM"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=7bwZv_4sjCM" border="0"&gt;&lt;/img&gt;&lt;/a&gt;
 &lt;/div&gt;</description>
-		
+
 					<wfw:commentRss>https://variety.com/2021/film/news/torino-film-festival-artistic-director-stefano-francia-di-celle-1235116558/feed/</wfw:commentRss>
 			<slash:comments>0</slash:comments>
-		
-		
+
+
 		<post-id xmlns="com-wordpress:feed-additions:1">1235116558</post-id>
 		<media:thumbnail url="https://variety.com/wp-content/uploads/2021/11/pjimage-2021-11-22T100824.497.jpg" />
 		<media:content url="https://variety.com/wp-content/uploads/2021/11/pjimage-2021-11-22T100824.497.jpg" medium="image">
@@ -81,7 +96,7 @@
 		<title>European Podcast Startup Podimo Raises $78 Million to Fund Content, Market Expansion</title>
 		<link>https://variety.com/2021/digital/news/podimo-raises-78-million-podcast-funding-1235118042/</link>
 					<comments>https://variety.com/2021/digital/news/podimo-raises-78-million-podcast-funding-1235118042/#respond</comments>
-		
+
 		<dc:creator><![CDATA[Todd Spangler]]></dc:creator>
 		<pubDate>Wed, 24 Nov 2021 09:00:02 +0000</pubDate>
 				<category><![CDATA[News]]></category>
@@ -92,11 +107,11 @@
 					<description>Podimo, a Copenhagen-based podcast and audio entertainment subscription service, said it closed $78 million in a Series B round of funding. The round brings Podimo, founded in 2019, to about $115 million raised to date. The latest round was led by 83North and Highland Europe, with participation from existing investors Chr. Augustinus, Heartcore, Saban Ventures, [&amp;#8230;]&lt;div class="feedflare"&gt;
 &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=oVnuqtrsIkw:kA5hMl4sTww:lrRoTrtBRRE"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=lrRoTrtBRRE" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=oVnuqtrsIkw:kA5hMl4sTww:ia-_PxDGrK0"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=ia-_PxDGrK0" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=oVnuqtrsIkw:kA5hMl4sTww:TyNjNGeJP5o"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=TyNjNGeJP5o" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=oVnuqtrsIkw:kA5hMl4sTww:7bwZv_4sjCM"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=7bwZv_4sjCM" border="0"&gt;&lt;/img&gt;&lt;/a&gt;
 &lt;/div&gt;</description>
-		
+
 					<wfw:commentRss>https://variety.com/2021/digital/news/podimo-raises-78-million-podcast-funding-1235118042/feed/</wfw:commentRss>
 			<slash:comments>0</slash:comments>
-		
-		
+
+
 		<post-id xmlns="com-wordpress:feed-additions:1">1235118042</post-id>
 		<media:thumbnail url="https://variety.com/wp-content/uploads/2021/11/Podimo.png" />
 		<media:content url="https://variety.com/wp-content/uploads/2021/11/Podimo.png" medium="image">
@@ -107,7 +122,7 @@
 		<title>Steve McQueen to Unveil New Installation ‘Sunshine State’ at Rotterdam Festival</title>
 		<link>https://variety.com/2021/film/global/steve-mcqueen-sunshine-state-rotterdam-festival-1235118530/</link>
 					<comments>https://variety.com/2021/film/global/steve-mcqueen-sunshine-state-rotterdam-festival-1235118530/#respond</comments>
-		
+
 		<dc:creator><![CDATA[elskes]]></dc:creator>
 		<pubDate>Wed, 24 Nov 2021 07:59:53 +0000</pubDate>
 				<category><![CDATA[Global]]></category>
@@ -119,11 +134,11 @@
 					<description>Oscar-winning filmmaker and Turner Prize-winning artist Steve McQueen is set to unveil his new installation, &amp;#8220;Sunshine State,&amp;#8221; at the Rotterdam International film festival (IFFR). The installation will be presented at the Dutch landmark Kunsthal as part of Rotterdam&amp;#8217;s Art Directions, a multi-disciplinary section dedicated to daring films, installations, exhibitions and live performance. Commissioned by IFFR, [&amp;#8230;]&lt;div class="feedflare"&gt;
 &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=hNqyuXWJaJA:jJosF4F9AX8:lrRoTrtBRRE"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=lrRoTrtBRRE" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=hNqyuXWJaJA:jJosF4F9AX8:ia-_PxDGrK0"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=ia-_PxDGrK0" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=hNqyuXWJaJA:jJosF4F9AX8:TyNjNGeJP5o"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=TyNjNGeJP5o" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=hNqyuXWJaJA:jJosF4F9AX8:7bwZv_4sjCM"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=7bwZv_4sjCM" border="0"&gt;&lt;/img&gt;&lt;/a&gt;
 &lt;/div&gt;</description>
-		
+
 					<wfw:commentRss>https://variety.com/2021/film/global/steve-mcqueen-sunshine-state-rotterdam-festival-1235118530/feed/</wfw:commentRss>
 			<slash:comments>0</slash:comments>
-		
-		
+
+
 		<post-id xmlns="com-wordpress:feed-additions:1">1235118530</post-id>
 		<media:thumbnail url="https://variety.com/wp-content/uploads/2021/09/Steve_McQueen_headshot-res.jpg" />
 		<media:content url="https://variety.com/wp-content/uploads/2021/09/Steve_McQueen_headshot-res.jpg" medium="image">
@@ -138,7 +153,7 @@
 		<title>Music Agents Marissa Smith, Matthew Morgan, Buster Philipps Exit WME, Bound for UTA (EXCLUSIVE)</title>
 		<link>https://variety.com/2021/music/news/wme-music-agents-marissa-smith-matthew-morgan-buster-philipps-1235118829/</link>
 					<comments>https://variety.com/2021/music/news/wme-music-agents-marissa-smith-matthew-morgan-buster-philipps-1235118829/#respond</comments>
-		
+
 		<dc:creator><![CDATA[Shirley Halperin]]></dc:creator>
 		<pubDate>Wed, 24 Nov 2021 04:08:47 +0000</pubDate>
 				<category><![CDATA[News]]></category>
@@ -149,11 +164,11 @@
 					<description>WME music agents Marissa Smith, Matthew Morgan and Buster Philipps have left the agency and are bound for UTA, sources tell Variety. The news follows the exit of Scott Clayton, who was one of three co-heads of music at WME. It was announced last week that Clayton would co-head the global music division at UTA, [&amp;#8230;]&lt;div class="feedflare"&gt;
 &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=kIofzHeC3Pw:wd_O6db4vBQ:lrRoTrtBRRE"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=lrRoTrtBRRE" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=kIofzHeC3Pw:wd_O6db4vBQ:ia-_PxDGrK0"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=ia-_PxDGrK0" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=kIofzHeC3Pw:wd_O6db4vBQ:TyNjNGeJP5o"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=TyNjNGeJP5o" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=kIofzHeC3Pw:wd_O6db4vBQ:7bwZv_4sjCM"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=7bwZv_4sjCM" border="0"&gt;&lt;/img&gt;&lt;/a&gt;
 &lt;/div&gt;</description>
-		
+
 					<wfw:commentRss>https://variety.com/2021/music/news/wme-music-agents-marissa-smith-matthew-morgan-buster-philipps-1235118829/feed/</wfw:commentRss>
 			<slash:comments>0</slash:comments>
-		
-		
+
+
 		<post-id xmlns="com-wordpress:feed-additions:1">1235118829</post-id>
 		<media:thumbnail url="https://variety.com/wp-content/uploads/2021/11/wme-uta.jpg" />
 		<media:content url="https://variety.com/wp-content/uploads/2021/11/wme-uta.jpg" medium="image">
@@ -164,7 +179,7 @@
 		<title>‘The Bachelorette’ Recap: Clayton Echard Gets His Bachelor Edit and Michelle Young Picks Her Final Four</title>
 		<link>https://variety.com/2021/tv/recaps/the-bachelorette-recap-season-18-episode-6-1235118800/</link>
 					<comments>https://variety.com/2021/tv/recaps/the-bachelorette-recap-season-18-episode-6-1235118800/#respond</comments>
-		
+
 		<dc:creator><![CDATA[Haley Kluge]]></dc:creator>
 		<pubDate>Wed, 24 Nov 2021 03:00:05 +0000</pubDate>
 				<category><![CDATA[Recaps]]></category>
@@ -175,11 +190,11 @@
 					<description>SPOILER ALERT: Do not read if you have not watched the Nov. 23 episode of “The Bachelorette.” Titular Bachelorette Michelle Young cut her line of suitors in half on the Nov. 23 episode of the ABC reality dating show. Leading up to hometowns, Michelle hosted dates in her own city and was joined by a [&amp;#8230;]&lt;div class="feedflare"&gt;
 &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=4WQrzRl0GUY:tbviJ6RhshU:lrRoTrtBRRE"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=lrRoTrtBRRE" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=4WQrzRl0GUY:tbviJ6RhshU:ia-_PxDGrK0"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=ia-_PxDGrK0" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=4WQrzRl0GUY:tbviJ6RhshU:TyNjNGeJP5o"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=TyNjNGeJP5o" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=4WQrzRl0GUY:tbviJ6RhshU:7bwZv_4sjCM"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=7bwZv_4sjCM" border="0"&gt;&lt;/img&gt;&lt;/a&gt;
 &lt;/div&gt;</description>
-		
+
 					<wfw:commentRss>https://variety.com/2021/tv/recaps/the-bachelorette-recap-season-18-episode-6-1235118800/feed/</wfw:commentRss>
 			<slash:comments>0</slash:comments>
-		
-		
+
+
 		<post-id xmlns="com-wordpress:feed-additions:1">1235118800</post-id>
 		<media:thumbnail url="https://variety.com/wp-content/uploads/2021/11/160344_5241.jpg" />
 		<media:content url="https://variety.com/wp-content/uploads/2021/11/160344_5241.jpg" medium="image">
@@ -190,7 +205,7 @@
 		<title>‘Day After …’ Review: Lively Doc Offers Postcard Views and Class Wars Aboard a Bangladeshi Riverboat Queen</title>
 		<link>https://variety.com/2021/film/reviews/day-after-review-1235117547/</link>
 					<comments>https://variety.com/2021/film/reviews/day-after-review-1235117547/#respond</comments>
-		
+
 		<dc:creator><![CDATA[Guy Lodge]]></dc:creator>
 		<pubDate>Wed, 24 Nov 2021 02:59:35 +0000</pubDate>
 				<category><![CDATA[Festivals]]></category>
@@ -203,11 +218,11 @@
 					<description>From &amp;#8220;Show Boat&amp;#8221; through &amp;#8220;Ship of Fools&amp;#8221; to &amp;#8220;Titanic,&amp;#8221; if a certain strain of Hollywood melodrama has taught us anything, it&amp;#8217;s that all of human life is to be found on a passenger boat — our dreams and desires and social differences somehow made clearer at some distance from dry land. Bangladeshi filmmaker Kamar Ahmad [&amp;#8230;]&lt;div class="feedflare"&gt;
 &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=J10dhdDh1FE:pFkhAVG00pU:lrRoTrtBRRE"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=lrRoTrtBRRE" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=J10dhdDh1FE:pFkhAVG00pU:ia-_PxDGrK0"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=ia-_PxDGrK0" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=J10dhdDh1FE:pFkhAVG00pU:TyNjNGeJP5o"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=TyNjNGeJP5o" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=J10dhdDh1FE:pFkhAVG00pU:7bwZv_4sjCM"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=7bwZv_4sjCM" border="0"&gt;&lt;/img&gt;&lt;/a&gt;
 &lt;/div&gt;</description>
-		
+
 					<wfw:commentRss>https://variety.com/2021/film/reviews/day-after-review-1235117547/feed/</wfw:commentRss>
 			<slash:comments>0</slash:comments>
-		
-		
+
+
 		<post-id xmlns="com-wordpress:feed-additions:1">1235117547</post-id>
 		<media:thumbnail url="https://variety.com/wp-content/uploads/2021/11/Day-After..003.jpg" />
 		<media:content url="https://variety.com/wp-content/uploads/2021/11/Day-After..003.jpg" medium="image">
@@ -218,7 +233,7 @@
 		<title>‘Clyde’s’ Review: Uzo Aduba Stars in Lynn Nottage’s New Broadway Comedy</title>
 		<link>https://variety.com/2021/legit/reviews/clydes-review-broadway-uzo-aduba-lynn-nottage-1235118289/</link>
 					<comments>https://variety.com/2021/legit/reviews/clydes-review-broadway-uzo-aduba-lynn-nottage-1235118289/#respond</comments>
-		
+
 		<dc:creator><![CDATA[Gordon Cox]]></dc:creator>
 		<pubDate>Wed, 24 Nov 2021 02:00:36 +0000</pubDate>
 				<category><![CDATA[Reviews]]></category>
@@ -231,11 +246,11 @@
 					<description>A sandwich has always been a kind of vehicle, ingredients riding between sliced bread. Lynn Nottage improbably turns the lunchtime staple into the storytelling engine of “Clyde’s,” her deceptively simple flavor-bomb of a new comedy about survival, second chances and digesting whatever life serves up. The roadway joint of the play’s title is a waystation [&amp;#8230;]&lt;div class="feedflare"&gt;
 &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=-hcN27bVcdQ:hkONo2RH46Q:lrRoTrtBRRE"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=lrRoTrtBRRE" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=-hcN27bVcdQ:hkONo2RH46Q:ia-_PxDGrK0"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=ia-_PxDGrK0" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=-hcN27bVcdQ:hkONo2RH46Q:TyNjNGeJP5o"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=TyNjNGeJP5o" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=-hcN27bVcdQ:hkONo2RH46Q:7bwZv_4sjCM"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=7bwZv_4sjCM" border="0"&gt;&lt;/img&gt;&lt;/a&gt;
 &lt;/div&gt;</description>
-		
+
 					<wfw:commentRss>https://variety.com/2021/legit/reviews/clydes-review-broadway-uzo-aduba-lynn-nottage-1235118289/feed/</wfw:commentRss>
 			<slash:comments>0</slash:comments>
-		
-		
+
+
 		<post-id xmlns="com-wordpress:feed-additions:1">1235118289</post-id>
 		<media:thumbnail url="https://variety.com/wp-content/uploads/2021/11/1105r2_Uzo-Aduba-Kara-Young-Ron-Cephas-Edmund-Donovan-and-Reza-Salazar-in-CLYDES-Photo-by-Joan-Marcus-2021.jpg" />
 		<media:content url="https://variety.com/wp-content/uploads/2021/11/1105r2_Uzo-Aduba-Kara-Young-Ron-Cephas-Edmund-Donovan-and-Reza-Salazar-in-CLYDES-Photo-by-Joan-Marcus-2021.jpg" medium="image">
@@ -246,7 +261,7 @@
 		<title>Comedy Albums by Dave Chappelle, Bo Burnham and Louis CK Get Grammy Noms … But Only One Is Considered Comedy</title>
 		<link>https://variety.com/2021/music/news/grammy-comedy-albums-bo-burnham-dave-chappelle-louis-ck-1235118771/</link>
 					<comments>https://variety.com/2021/music/news/grammy-comedy-albums-bo-burnham-dave-chappelle-louis-ck-1235118771/#respond</comments>
-		
+
 		<dc:creator><![CDATA[Chris Willman]]></dc:creator>
 		<pubDate>Wed, 24 Nov 2021 01:50:35 +0000</pubDate>
 				<category><![CDATA[Awards]]></category>
@@ -259,11 +274,11 @@
 					<description>Some of the biggest names in comedy had their latest albums nominated for Grammys as the list of contenders was rolled out Tuesday, including Louis CK, Dave Chappelle and Bo Burnham, who each have their latest albums put in contention by the Recording Academy. But if you think those three share the same category, think again. Louis [&amp;#8230;]&lt;div class="feedflare"&gt;
 &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=MCNv8y7UDAE:T1ob_tX5gik:lrRoTrtBRRE"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=lrRoTrtBRRE" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=MCNv8y7UDAE:T1ob_tX5gik:ia-_PxDGrK0"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=ia-_PxDGrK0" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=MCNv8y7UDAE:T1ob_tX5gik:TyNjNGeJP5o"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=TyNjNGeJP5o" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=MCNv8y7UDAE:T1ob_tX5gik:7bwZv_4sjCM"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=7bwZv_4sjCM" border="0"&gt;&lt;/img&gt;&lt;/a&gt;
 &lt;/div&gt;</description>
-		
+
 					<wfw:commentRss>https://variety.com/2021/music/news/grammy-comedy-albums-bo-burnham-dave-chappelle-louis-ck-1235118771/feed/</wfw:commentRss>
 			<slash:comments>0</slash:comments>
-		
-		
+
+
 		<post-id xmlns="com-wordpress:feed-additions:1">1235118771</post-id>
 		<media:thumbnail url="https://variety.com/wp-content/uploads/2021/11/pjimage-4.jpg" />
 		<media:content url="https://variety.com/wp-content/uploads/2021/11/pjimage-4.jpg" medium="image">
@@ -274,7 +289,7 @@
 		<title>Lou Cutell, ‘Seinfeld’ Character Actor, Dies at 91</title>
 		<link>https://variety.com/2021/tv/news/lou-cutell-dead-seinfeld-assman-1235118678/</link>
 					<comments>https://variety.com/2021/tv/news/lou-cutell-dead-seinfeld-assman-1235118678/#comments</comments>
-		
+
 		<dc:creator><![CDATA[Jennifer Yuma]]></dc:creator>
 		<pubDate>Wed, 24 Nov 2021 00:17:39 +0000</pubDate>
 				<category><![CDATA[News]]></category>
@@ -287,11 +302,11 @@
 					<description>Lou Cutell, a prolific character actor known for portraying proctologist Dr. &amp;#8220;Assman&amp;#8221; Cooperman on &amp;#8220;Seinfeld&amp;#8221; and Big Larry in &amp;#8220;Pee-wee&amp;#8217;s Big Adventure&amp;#8221; has died. He was 91. Cutell also played Dr. Brainard in &amp;#8220;Honey I Shrunk the Kids&amp;#8221; and Abe on &amp;#8220;Grey&amp;#8217;s Anatomy.&amp;#8221; His friend Mark Furman announced the news on Facebook. Furman posted about [&amp;#8230;]&lt;div class="feedflare"&gt;
 &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=h9jJicFbe_4:zmQvtunSzTA:lrRoTrtBRRE"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=lrRoTrtBRRE" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=h9jJicFbe_4:zmQvtunSzTA:ia-_PxDGrK0"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=ia-_PxDGrK0" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=h9jJicFbe_4:zmQvtunSzTA:TyNjNGeJP5o"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=TyNjNGeJP5o" border="0"&gt;&lt;/img&gt;&lt;/a&gt; &lt;a href="http://feeds.feedburner.com/~ff/variety/news/frontpage?a=h9jJicFbe_4:zmQvtunSzTA:7bwZv_4sjCM"&gt;&lt;img src="http://feeds.feedburner.com/~ff/variety/news/frontpage?d=7bwZv_4sjCM" border="0"&gt;&lt;/img&gt;&lt;/a&gt;
 &lt;/div&gt;</description>
-		
+
 					<wfw:commentRss>https://variety.com/2021/tv/news/lou-cutell-dead-seinfeld-assman-1235118678/feed/</wfw:commentRss>
 			<slash:comments>1</slash:comments>
-		
-		
+
+
 		<post-id xmlns="com-wordpress:feed-additions:1">1235118678</post-id>
 		<media:thumbnail url="https://variety.com/wp-content/uploads/2021/11/Lou-Cutell.jpg" />
 		<media:content url="https://variety.com/wp-content/uploads/2021/11/Lou-Cutell.jpg" medium="image">

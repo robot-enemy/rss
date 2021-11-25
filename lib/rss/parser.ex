@@ -51,30 +51,20 @@ defmodule RSS.Parser do
     }
   }
 
-  defmodule CurrentNode do
-    defstruct [id: nil]
-  end
-  defmodule TreeNode do
-    defstruct [content: nil, id: nil, parent: nil, tag: nil]
-
-    def fetch(map, key) do
-      :maps.find(key, map)
-    end
-  end
-
   def parse(path) do
-    # channel = %{"items" => [], "meta" => []}
-    # current_node = nil
-
+    initial_state = {{}, nil}
     opts = [
-      event_state: {[], nil},
+      event_state: initial_state,
       event_fun: &RSS.Parser.event/3,
     ]
 
-    {:ok, {result, _}, _} = :xmerl_sax_parser.file(path, opts)
+    {:ok, {_initial_state, state}, _} = :xmerl_sax_parser.file(path, opts)
 
-    Enum.group_by(result, fn node -> node.parent end)
-    |> IO.inspect()
+    # for key <- ["atom10:link", "description", "feedburner:browserFriendly", "feedburner:info",
+    #             "generator", "image", "language", "lastBuildDate", "link", "site",
+    #             "sy:updateFrequency", "sy:updatePeriod", "title"] do
+    #   IO.inspect %{key => state["rss"]["channel"][key]}
+    # end
   end
 
   # def event(:startDocument, _, state) do
@@ -82,159 +72,67 @@ defmodule RSS.Parser do
   #   state
   # end
 
-  defp find_node_by(stack, key, value) do
-    Enum.find(stack, fn node -> node[key] == value end)
-  end
+  defp get_tag(node), do: node |> Map.keys() |> List.first()
 
-  defp pop_node_from_stack(stack, id) do
-    index = Enum.find_index(stack, fn node -> node.id == id end)
-    List.pop_at(stack, index)
-  end
+  defp tag_name({prefix, tag}) when prefix == [], do: to_string(tag)
+  defp tag_name({prefix, tag}), do: Enum.join([prefix, tag], ":")
 
   #
   # Item
   #
 
-  def event({:startElement, _, 'item', _, _}, {_path, file, line_num}, {stack, active_node}) do
-    {items_node, stack} =
-      case find_node_by(stack, :tag, "items") do
-        nil ->
-          node = %TreeNode{
-            content: [],
-            id: "items@#{file}:#{line_num}",
-            parent: active_node,
-            tag: "items",
-          }
-          {node, stack ++ [node]}
-        items_node ->
-          {items_node, stack}
-      end
-
-    node_id = "item@#{file}:#{line_num}"
-    node = %TreeNode{
-      id: node_id,
-      content: nil,
-      parent: items_node[:id],
-      tag: "item",
-    }
-    {stack ++ [node], node_id}
+  def event(
+    {:startElement, _, 'item', _tag_with_prefix, _},
+    {_path, _file, _line_num},
+    {stack, current_node}
+  ) do
+    if get_tag(current_node) == "items" do
+      # The items node already exists, so just put the item node onto the stack
+      {{stack, current_node}, %{"item" => nil}}
+    else
+      # The items node doesn't yet exist, so push an items node first
+      {{{stack, current_node}, %{"items" => []}}, %{"item" => nil}}
+    end
   end
 
-  def event({:endElement, _, 'item', _}, _loc, {stack, active_node}) do
-    items_node = find_node_by(stack, :tag, "items")
-    {stack, items_node[:parent]}
+  def event({:endElement, _, 'item', _}, _loc, {{stack, parent_node}, current_node}) do
+    {stack, Map.put(parent_node, "items", parent_node["items"] ++ [current_node])}
   end
 
   #
   # General
   #
 
-  def event({:startElement, _, tag, {prefix, tag}, _}, {_path, file, line_num}, {stack, active_node}) do
-    tag = if (prefix == []), do: to_string(tag), else: Enum.join([prefix, tag], ":")
-    id = "#{tag}@#{file}:#{line_num}"
-    node = %TreeNode{
-      id: id,
-      content: nil,
-      parent: active_node,
-      tag: tag,
-    }
-    {stack ++ [node], id}
+  def event(
+    {:startElement, _, _tag, tag_with_prefix, _},
+    {_path, _file, _line_num},
+    stack
+  ) do
+    tag = tag_name(tag_with_prefix)
+    {stack, %{tag => nil}}
   end
 
-  def event({:characters, text}, _loc, {stack, active_node}) do
-    {node, stack} = pop_node_from_stack(stack, active_node)
-    content = to_string(text) |> String.trim()
-    node = Map.put(node, :content, content)
+  def event({:characters, text}, _loc, {stack, current_node}) do
+    key = get_tag(current_node)
+    content = text |> to_string() |> String.trim()
 
-    {stack ++ [node], active_node}
+    # Update content of key
+    {stack, Map.put(current_node, key, content)}
   end
 
-  def event({:endElement, _, tag, _}, _loc, {stack, active_node}) do
-    node = Enum.find(stack, fn node -> node.id == active_node end)
-    {stack, node.parent}
+  def event({:endElement, _, _tag, _}, _loc, {{stack, parent_node}, current_node}) do
+    parent_tag = get_tag(parent_node)
+    parent_content = (parent_node[parent_tag] || %{}) |> Map.merge(current_node)
+    parent_node = Map.put(parent_node, parent_tag, parent_content)
+
+    {stack, parent_node}
   end
 
-  # def event({:startElement, _, tag, {prefix, tag}, _}, _, {channel, current_node} = _state)
-  # when prefix != [] do
-  #   IO.inspect node = %{"#{prefix}:#{tag}": nil}
-  #   {channel, node}
-  # end
-  # def event({:characters, text}, v1, {channel, current_node} = _state) do
-  #   IO.inspect v1, label: "V1"
-  #   {channel, Map.put(current_node, :d, text)}
-  # end
+  def event(:endDocument, _, stack), do: stack
 
-  # def event({:startElement, _v1, _tag, _v2, _v3}, _, state) do
-  #   # IO.inspect [v1, tag, v2, v3], label: "START ELEMENT"
-  #   # node = %TreeNode{
-  #   #   content: nil,
-  #   #   id: 1,
-  #   #   parent: current_node[:id],
-  #   #   tag: to_string(tag)
-  #   # }
-  #   state
-  # end
+  def event({:ignorableWhitespace, _whitespace}, _, stack), do: stack
+  def event(:startCDATA, _, stack), do: stack
+  def event(:endCDATA, _, stack), do: stack
+  def event(_identifier, {_path, _file, _line_number}, stack), do: stack
 
-  # def event({:processingInstruction, tag, params}, _, {acc, current}) do
-  #   params =
-  #     Regex.scan(~r/(\w+)=\"(\S+)\"/, to_string(params))
-  #     |> Enum.reduce(%{}, fn [_, key, value], acc -> Map.put(acc, key, value) end)
-
-  #   {Map.put(acc, to_string(tag), params), current}
-  # end
-  # def event({:startPrefixMapping, key, value}, _, {acc, current}) do
-  #   xmlns = Map.put(acc["xmlns"] || %{}, key, value)
-  #   {Map.put(acc, "xmlns", xmlns), current}
-  # end
-
-  # def event({:startElement, _, 'item', _, _}, _, {acc, current}) do
-  #   {acc, %{'item' => %{}}}
-  # end
-
-  # def event({:startElement, _, tag, _, _}, _, {acc, %{'item' => item}}) do
-  #   {acc, %{'current_tag' => tag, 'item' => Map.put(item, tag, nil)}}
-  # end
-
-  # def event({:characters, text}, _, {acc, %{'current_tag' => tag, 'item' => item}}) do
-  #   {acc, %{'item' => Map.put(item, tag, text)}}
-  # end
-
-  # def event({:endElement, _, tag, _}, _, {acc, %{'current_tag' => tag, 'item' => item}}) do
-  #   {acc, %{'current_tag' => nil, 'item' => item}}
-  # end
-
-  # def event({:endElement, _, 'item', _}, _, {acc, %{'item' => item}}) do
-  #   items = [item | acc["items"]]
-  #   {Map.put(acc, "items", items), %{}}
-  # end
-
-  # def event({:startElement, _, tag, _, _}, _, {acc, _current}) do
-  #   {acc, %{"key" => tag}}
-  # end
-  # def event({:characters, text}, _, {acc, current}) do
-  #   {acc, Map.put(current, "value", text)}
-  # end
-  # def event({:endElement, _, tag, _}, _, {acc, current}) do
-  #   key = current["key"]
-  #   value = current["value"]
-
-  #   if key && value do
-  #     {Map.put(acc, to_string(key), to_string(value)), %{}}
-  #   else
-  #     {acc, current}
-  #   end
-  # end
-
-  # def event(:endDocument, _, {acc, _current}) do
-  #   IO.inspect acc
-  # end
-
-  def event({:ignorableWhitespace, _whitespace}, _, acc), do: acc
-  # def event(:startCDATA, _, acc), do: acc
-  # def event(:endCDATA, _, acc), do: acc
-
-  def event(identifier, {_path, _file, _line_number}, {acc, current}) do
-    # IO.inspect identifier
-    {acc, current}
-  end
 end
