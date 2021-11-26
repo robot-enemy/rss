@@ -2,7 +2,6 @@ defmodule RSS.Data do
   @moduledoc """
   Parses and normalises the data returned from the internet.
   """
-  @parser RSS.Parsers.FeederEx
 
   @doc """
   Given a parsed data map, normalises the data.
@@ -11,23 +10,25 @@ defmodule RSS.Data do
           {:ok, map()} | {:error, any()}
 
   def normalise(data) do
-    normalised = Map.put(data, :entries, Enum.map(data.entries, &normalise_entry/1))
-
-    {:ok, normalised}
+    data
+    |> normalise_link()
+    |> Map.put(:entries, Enum.map(data.entries, &normalise_entry/1))
   end
 
-  def normalise_entry(entry) do
+  defp normalise_author(data) do
+    Map.put(data, :author, data[:author] || data[:"rss2:dc:creator"])
+  end
+
+  defp normalise_entry(entry) do
     entry
-    |> Map.put(:published_at, format_date(entry[:pub_date]))
+    |> normalise_link()
+    |> normalise_author()
+    |> Map.put(:published_at, entry[:"rss2:pubDate"])
   end
 
-  defp format_date(date_str) when is_binary(date_str) do
-    case DateTimeParser.parse_datetime(date_str) do
-      {:ok, datetime} -> datetime
-      _error -> nil
-    end
+  defp normalise_link(data) do
+    Map.put(data, :link, data[:link] || data[:"rss2:link"] || data[:"atom:link"])
   end
-  defp format_date(_), do: nil
 
   @doc """
   Given the data returned from a valid RSS feed, returns a parsed data structure.
@@ -36,7 +37,7 @@ defmodule RSS.Data do
           {:error, RSS.Error.t()} | {:ok, map()}
 
   def parse(data) when is_binary(data) do
-    case @parser.parse(data) do
+    case ElixirFeedParser.parse(data) do
       {:error, reason} ->
         {:error, %RSS.Error{reason: "RSS.Data.parse/1: #{reason}"}}
       ok ->

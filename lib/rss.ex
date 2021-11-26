@@ -15,7 +15,7 @@ defmodule RSS do
          {:ok, data} <- RSS.HTTP.get(url),
          {:ok, data} <- RSS.Data.parse(data)
     do
-      RSS.Data.normalise(data)
+      {:ok, RSS.Data.normalise(data)}
     else
       {:error, error} ->
         Logger.error RSS.Error.message(error)

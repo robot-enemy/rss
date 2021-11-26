@@ -20,19 +20,27 @@ defmodule RSSTest do
       assert {:ok, feed_data} = RSS.fetch(url)
       assert %{
         title: "BBC News - World",
-        summary: "BBC News - World",
+        description: "BBC News - World",
         link: "https://www.bbc.co.uk/news/",
-        image: "https://news.bbcimg.co.uk/nol/shared/img/bbc_news_120x60.gif",
+        image: %{
+          description: nil,
+          height: nil,
+          link: "https://www.bbc.co.uk/news/",
+          title: "BBC News - World",
+          url: "https://news.bbcimg.co.uk/nol/shared/img/bbc_news_120x60.gif",
+          width: nil,
+        },
         language: "en-gb",
         entries: entries,
       } = feed_data
       assert Enum.count(entries) == 30
       assert %{
-        title: "Coronavirus delays Russian vote on Putin staying in power",
-        summary: "A public ballot on constitutional change is postponed because of coronavirus concerns.",
-        link: "https://www.bbc.co.uk/news/world-europe-52038814",
+        categories: [],
+        description: "A public ballot on constitutional change is postponed because of coronavirus concerns.",
         id: "https://www.bbc.co.uk/news/world-europe-52038814",
-        published_at: nil,
+        link: "https://www.bbc.co.uk/news/world-europe-52038814",
+        published_at: ~U[2020-03-25 16:10:25Z],
+        title: "Coronavirus delays Russian vote on Putin staying in power",
       } = List.first(entries)
     end
 
