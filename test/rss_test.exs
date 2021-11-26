@@ -132,13 +132,75 @@ defmodule RSSTest do
       end) =~ error_reason
     end
 
-    test "test" do
-      # path = Path.join(File.cwd!, "test/data/bbc-world-news.xml")
+  end
+
+  describe "parse/1" do
+
+    test "correctly returns the feed data" do
       path = Path.join(File.cwd!, "test/data/variety.xml")
 
-      RSS.Parser.parse(path)
-    end
+      assert {:ok, result} = RSS.parse(path)
+      assert rss = result["rss"]
+      assert channel = rss["channel"]
+      assert channel["title"] == "Variety"
+      assert channel["description"] |> is_nil()
+      assert channel["lastBuildDate"] == "Wed, 24 Nov 2021 10:59:28 +0000"
+      assert channel["language"] == "en-US"
+      assert channel["sy"]["updatePeriod"] == "hourly"
+      assert channel["sy"]["updateFrequency"] == "1"
+      assert channel["generator"] == "https://wordpress.org/?v=5.8.2"
 
+      assert image = channel["image"]
+      assert image["height"] == "32"
+      assert image["link"] == "https://variety.com"
+      assert image["title"] == "Variety"
+      assert image["width"] == "32"
+      assert image["url"] == "https://variety.com/wp-content/uploads/2018/06/variety-favicon.png?w=32"
+
+      assert [%{"item" => first_item}|items] = channel["items"]
+
+      assert first_item["title"] == "‘The Great British Bake-Off’ Final Nabs Sizeable Slice of Audience Share With 6.9 Million Viewers"
+      assert first_item["link"] == "https://variety.com/2021/tv/news/the-great-british-bake-off-final-2021-ratings-1235118941/"
+      assert first_item["comments"] == "https://variety.com/2021/tv/news/the-great-british-bake-off-final-2021-ratings-1235118941/#respond"
+      assert first_item["dc"]["creator"] == "K.J. Yossman"
+      assert first_item["pubDate"] == "Wed, 24 Nov 2021 10:09:31 +0000"
+      assert first_item["guid"] == "https://variety.com/?p=1235118941"
+      assert first_item["description"] =~ "SPOILER WARNING: Do not read this story unless you"
+
+      assert first_item_media = first_item["media"]
+      assert first_item_media["thumbnail"] == "https://variety.com/wp-content/uploads/2021/11/Bake-Off.jpeg"
+      assert first_item_media["content"] == "https://variety.com/wp-content/uploads/2021/11/Bake-Off.jpeg"
+      assert first_item_media["title"] == "Bake-Off"
+  %{
+    "channel" => %{
+
+      "items" => [
+        %{
+          "categories" => [
+            "Global",
+            "News",
+            "Dracula",
+            "Hammer Films",
+            "Let Me In",
+            "The Woman In Black"
+          ],
+
+          "wfw:commentRss" => "https://variety.com/2021/film/global/dracula-hammer-films-network-distributing-1235117981/feed/",
+          "slash:comments" => 0,
+          "post-id" => 1235117981,
+          "media" => %{
+            "thumbnail" => "https://variety.com/wp-content/uploads/2021/11/Lady-in-Black-Dracula.jpg",
+            "content" => %{
+              "url" => "https://variety.com/wp-content/uploads/2021/11/Lady-in-Black-Dracula.jpg",
+              "medium" => "image",
+              "title" => "Lady-in-Black-Dracula",
+            },
+          },
+        }
+      ]
+    }
+  }
+    end
   end
 
 end

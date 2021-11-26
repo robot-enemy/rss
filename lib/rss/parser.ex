@@ -1,56 +1,6 @@
 defmodule RSS.Parser do
   @moduledoc false
 
-  %{
-    "channel" => %{
-      "title" => "Variety",
-      "description" => "",
-      "lastBuildDate" => "Tue, 23 Nov 2021 11:12:19 +0000",
-      "language" => "en-US",
-      "sy:updatePeriod" => "hourly",
-      "sy:updateFrequency" => "1",
-      "generator" => "https://wordpress.org/?v=5.8.2",
-      "image" => %{
-        "url" => "https://variety.com/wp-content/uploads/2018/06/variety-favicon.png?w=32",
-        "title" => "Variety",
-        "link" => "https://variety.com",
-        "width" => "32",
-        "height" => "32",
-      },
-      "feedburner:browserFriendly" => "This is an XML content...",
-      "items" => [
-        %{
-          "title" => "‘Dracula’ Producer Hammer Films Teams With Network Distributing to Form Hammer Studios (EXCLUSIVE)",
-          "link" => "https://variety.com/2021/film/global/dracula-hammer-films-network-distributing-1235117981/",
-          "comments" => "https://variety.com/2021/film/global/dracula-hammer-films-network-distributing-1235117981/#respond",
-          "dc:creator" => "Naman Ramachandran",
-          "pubDate" => "Tue, 23 Nov 2021 09:00:05 +0000",
-          "categories" => [
-            "Global",
-            "News",
-            "Dracula",
-            "Hammer Films",
-            "Let Me In",
-            "The Woman In Black"
-          ],
-          "guid" => "https://variety.com/?p=1235117981",
-          "description" => "The U.K.&amp;#8217;s Network Distributing has sealed...",
-          "wfw:commentRss" => "https://variety.com/2021/film/global/dracula-hammer-films-network-distributing-1235117981/feed/",
-          "slash:comments" => 0,
-          "post-id" => 1235117981,
-          "media" => %{
-            "thumbnail" => "https://variety.com/wp-content/uploads/2021/11/Lady-in-Black-Dracula.jpg",
-            "content" => %{
-              "url" => "https://variety.com/wp-content/uploads/2021/11/Lady-in-Black-Dracula.jpg",
-              "medium" => "image",
-              "title" => "Lady-in-Black-Dracula",
-            },
-          },
-        }
-      ]
-    }
-  }
-
   def parse(path) do
     initial_state = {{}, nil}
     opts = [
@@ -58,13 +8,10 @@ defmodule RSS.Parser do
       event_fun: &RSS.Parser.event/3,
     ]
 
-    {:ok, {_initial_state, state}, _} = :xmerl_sax_parser.file(path, opts)
-
-    # for key <- ["atom10:link", "description", "feedburner:browserFriendly", "feedburner:info",
-    #             "generator", "image", "language", "lastBuildDate", "link", "site",
-    #             "sy:updateFrequency", "sy:updatePeriod", "title"] do
-    #   IO.inspect %{key => state["rss"]["channel"][key]}
-    # end
+    case :xmerl_sax_parser.file(path, opts) do
+      {:ok, {_initial_state, state}, _} -> {:ok, state} |> IO.inspect()
+      error -> error
+    end
   end
 
   # def event(:startDocument, _, state) do
@@ -80,36 +27,48 @@ defmodule RSS.Parser do
   #
   # Item
   #
-
-  def event(
-    {:startElement, _, 'item', _tag_with_prefix, _},
-    {_path, _file, _line_num},
-    {stack, current_node}
-  ) do
-    if get_tag(current_node) == "items" do
-      # The items node already exists, so just put the item node onto the stack
-      {{stack, current_node}, %{"item" => nil}}
-    else
-      # The items node doesn't yet exist, so push an items node first
-      {{{stack, current_node}, %{"items" => []}}, %{"item" => nil}}
-    end
-  end
-
+  # when item closes, add it to the "items" list
+  #
   def event({:endElement, _, 'item', _}, _loc, {{stack, parent_node}, current_node}) do
-    {stack, Map.put(parent_node, "items", parent_node["items"] ++ [current_node])}
+    items = parent_node["channel"]["items"] || []
+    items = items ++ [current_node]
+    parent_node = put_in(parent_node, ["channel", "items"], items)
+
+    {stack, parent_node}
   end
+
+  #
+  # Item Media
+  #
+
+  # defp extract_attr(html_attrs, key) do
+  #   {_, _, _name, value} = Enum.find(html_attrs, fn {_, _, name, _} -> name == key end)
+  #   to_string(value)
+  # end
+
+  # def event(
+  #   {:startElement, _meta_terms, _tag, {'media', 'thumbnail'}, html_attrs},
+  #   {_path, _file, _line_num},
+  #   stack
+  # ) do
+  #   if get_tag(current_node) == "media" do
+  #     {stack, Map.mergecurrent_node}, %{"thumbnail" => extract_attr(html_attrs, 'url')}}
+  #   else
+  #     {{stack, current_node}, %{"media"}}
+  # end
 
   #
   # General
   #
 
   def event(
-    {:startElement, _, _tag, tag_with_prefix, _},
+    {:startElement, _meta_terms, _tag, {_prefix, tag}, _html_attrs},
     {_path, _file, _line_num},
     stack
   ) do
-    tag = tag_name(tag_with_prefix)
-    {stack, %{tag => nil}}
+    # tag = tag_name(tag_with_prefix)
+
+    {stack, %{to_string(tag) => nil}}
   end
 
   def event({:characters, text}, _loc, {stack, current_node}) do
@@ -120,7 +79,24 @@ defmodule RSS.Parser do
     {stack, Map.put(current_node, key, content)}
   end
 
-  def event({:endElement, _, _tag, _}, _loc, {{stack, parent_node}, current_node}) do
+  #
+  # If the parent element is nil, we're done.  Return the stack
+  #
+  def event({:endElement, _, _, _}, _, {{stack, nil}, current_node}) do
+    {stack, current_node}
+  end
+
+  ##############
+  #            #
+  # endElement #
+  #            #
+  ##############
+
+  def event(
+    {:endElement, _meta_terms, _tag, {[], _tag}},
+    {_path, _file, _line_num},
+    {{stack, parent_node}, current_node}
+  ) do
     parent_tag = get_tag(parent_node)
     parent_content = (parent_node[parent_tag] || %{}) |> Map.merge(current_node)
     parent_node = Map.put(parent_node, parent_tag, parent_content)
@@ -128,11 +104,57 @@ defmodule RSS.Parser do
     {stack, parent_node}
   end
 
+  # This is a patch for the media element, as they function differently than
+  # other elements.
+  def event(
+    {:endElement, _meta_terms, _tag, {'media', _tag} = el},
+    {_path, _file_, _line_num},
+    {{{stack, grandparent_node}, parent_node}, current_node}
+  ) do
+    cond do
+      current_node["media"] ->
+        # We're currently in the "item", so just return the stack
+        {{{stack, grandparent_node}, parent_node}, current_node}
+      media = parent_node["media"] ->
+        # The parent node is the "item", so update the "media" value
+        media = Map.merge(media, current_node)
+        {{stack, grandparent_node}, Map.put(parent_node, "media", media)}
+      media = grandparent_node["media"] ->
+        # We're two media deep, the "item" is the grandparent, so we want to
+        # merge up
+        media = Map.merge(media, current_node)
+        {stack, Map.put(grandparent_node, "media", media)}
+      true ->
+        # Else we merge a new "media" into the parent
+        {{stack, grandparent_node}, Map.put(parent_node, "media", current_node)}
+    end
+  end
+
+  def event(
+    {:endElement, _meta_terms, _tag, {prefix, tag}},
+    {_path, _file, _line_num},
+    {{stack, parent_node}, current_node}
+  ) when prefix != [] do
+    parent_tag = get_tag(parent_node)
+    prefix = to_string(prefix)
+    tag = to_string(tag)
+    parent_node =
+      if existing_node = parent_node[parent_tag][prefix] do
+        put_in(parent_node, [parent_tag, prefix], Map.merge(existing_node, current_node))
+      else
+        put_in(parent_node, [parent_tag, prefix], current_node)
+      end
+
+    {stack, parent_node}
+  end
+
+
+
   def event(:endDocument, _, stack), do: stack
 
-  def event({:ignorableWhitespace, _whitespace}, _, stack), do: stack
-  def event(:startCDATA, _, stack), do: stack
-  def event(:endCDATA, _, stack), do: stack
+  # def event({:ignorableWhitespace, _whitespace}, _, stack), do: stack
+  # def event(:startCDATA, _, stack), do: stack
+  # def event(:endCDATA, _, stack), do: stack
   def event(_identifier, {_path, _file, _line_number}, stack), do: stack
 
 end

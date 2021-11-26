@@ -23,6 +23,13 @@ defmodule RSS do
     end
   end
 
+  @doc """
+  Given the path to an RSS feed, returns the raw data in a map.
+  """
+  def parse(path) when is_binary(path) do
+    RSS.Parser.parse(path)
+  end
+
   # This is an imperfect way of checking the URL is valid, but it'll do for our
   # purposes, as the URLs should be getting checked as they're being added to
   # the DB, and regular users don't have access to that.
