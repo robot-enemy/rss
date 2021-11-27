@@ -12,6 +12,7 @@ defmodule RSS.Data do
   def normalise(data) do
     data
     |> normalise_link()
+    |> normalise_updated()
     |> Map.put(:entries, Enum.map(data.entries, &normalise_entry/1))
   end
 
@@ -27,8 +28,12 @@ defmodule RSS.Data do
   end
 
   defp normalise_link(data) do
-    Map.put(data, :link, data[:link] || data[:"rss2:link"] || data[:"atom:link"])
+    Map.put(data, :link, data[:link] || data[:"atom:link"]) || data[:"rss2:link"]
   end
+
+  defp normalise_updated(%{updated: nil} = data),
+    do: Map.put(data, :updated, data[:"rss2:lastBuildDate"] || data[:"rss2:pubDate"])
+  defp normalise_updated(data), do: data
 
   @doc """
   Given the data returned from a valid RSS feed, returns a parsed data structure.
