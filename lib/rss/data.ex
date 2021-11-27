@@ -27,9 +27,8 @@ defmodule RSS.Data do
     |> Map.put(:published_at, entry[:"rss2:pubDate"])
   end
 
-  defp normalise_link(data) do
-    Map.put(data, :link, data[:link] || data[:"atom:link"]) || data[:"rss2:link"]
-  end
+  defp normalise_link(data),
+    do: Map.put(data, :link, data[:link] || data[:"atom:link"] || data[:"rss2:link"])
 
   defp normalise_updated(%{updated: nil} = data),
     do: Map.put(data, :updated, data[:"rss2:lastBuildDate"] || data[:"rss2:pubDate"])
