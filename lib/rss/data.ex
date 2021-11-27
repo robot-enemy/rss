@@ -30,7 +30,7 @@ defmodule RSS.Data do
   end
 
   def normalise_guid(data),
-    do: Map.put(data, :guid, data[:guid] || data[:"rss2:link"])
+    do: Map.put(data, :guid, data[:guid] || data[:"rss2:guid"])
 
   defp normalise_link(data),
     do: Map.put(data, :link, data[:link] || data[:"atom:link"] || data[:"rss2:link"])
