@@ -23,7 +23,8 @@ defmodule RSS.MixProject do
     [
       {:http_client, github: "robot-enemy/http_client"},
 
-      {:elixir_feed_parser, "~> 2.1"},
+      # {:elixir_feed_parser, "~> 2.1"},
+      {:elixir_feed_parser, github: "delameko/elixir-feed-parser"},
 
       # Testing
       {:mox, "~> 1.0", only: :test},
