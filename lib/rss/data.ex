@@ -11,6 +11,7 @@ defmodule RSS.Data do
 
   def normalise(data) do
     data
+    |> normalise_guid()
     |> normalise_link()
     |> normalise_updated()
     |> Map.put(:entries, Enum.map(data.entries, &normalise_entry/1))
@@ -22,10 +23,14 @@ defmodule RSS.Data do
 
   defp normalise_entry(entry) do
     entry
+    |> normalise_guid()
     |> normalise_link()
     |> normalise_author()
     |> Map.put(:published_at, entry[:"rss2:pubDate"])
   end
+
+  def normalise_guid(data),
+    do: Map.put(data, :guid, data[:guid] || data[:"rss2:link"])
 
   defp normalise_link(data),
     do: Map.put(data, :link, data[:link] || data[:"atom:link"] || data[:"rss2:link"])
